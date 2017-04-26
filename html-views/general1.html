@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>笔记本</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/prettify.css" type="text/css">
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/jquery-1.8.3.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/summernote.css" rel="stylesheet">
+
+    <link href="../assets/css/create.css" rel="stylesheet">
+    <!--external css-->
+    <link href="../assets/lineicons/style.css" rel="stylesheet"/>
+    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css"/>
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body onload="prettyPrint()">
+<div id="context-menu2">
+    <ul class="dropdown-menu" role="menu">
+        <li><a tabindex="-1">新建文件夹</a></li>
+        <li><a tabindex="-1">新建笔记</a></li>
+        <li class="divider"></li>
+        <li><a tabindex="-1">删除文件夹</a></li>
+    </ul>
+</div>
+
+<div id="context-menu1">
+    <ul class="dropdown-menu" role="menu">
+        <li><a tabindex="-1">删除</a></li>
+        <li><a tabindex="-1">修改标题</a></li>
+    </ul>
+</div>
+
+<section id="container">
+    <!-- **********************************************************************************************************************************************************
+    TOP BAR CONTENT & NOTIFICATIONS
+    *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header black-bg">
+        <div class="sidebar-toggle-box">
+            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+        </div>
+        <!--logo start-->
+        <a href="index.html" class="logo"><b>笔记</b></a>
+        <!--logo end-->
+        <div class="nav notify-row" id="top_menu">
+            <!--  notification start -->
+            <ul class="nav top-menu">
+                <!-- settings start -->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                        <i class="fa fa-tasks"></i>
+                        <span class="badge bg-theme">4</span>
+                    </a>
+                    <ul class="dropdown-menu extended tasks-bar">
+                        <div class="notify-arrow notify-arrow-green"></div>
+                        <li>
+                            <p class="green">You have 4 pending tasks</p>
+                        </li>
+                        <li>
+                            <a href="index.html#">
+                                <div class="task-info">
+                                    <div class="desc">DashGum Admin Panel</div>
+                                    <div class="percent">40%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                        <span class="sr-only">40% Complete (success)</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#">
+                                <div class="task-info">
+                                    <div class="desc">Database Update</div>
+                                    <div class="percent">60%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                        <span class="sr-only">60% Complete (warning)</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#">
+                                <div class="task-info">
+                                    <div class="desc">Product Development</div>
+                                    <div class="percent">80%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                        <span class="sr-only">80% Complete</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#">
+                                <div class="task-info">
+                                    <div class="desc">Payments Sent</div>
+                                    <div class="percent">70%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                        <span class="sr-only">70% Complete (Important)</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="external">
+                            <a href="#">See All Tasks</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- settings end -->
+                <!-- inbox dropdown start-->
+                <li id="header_inbox_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="badge bg-theme">5</span>
+                    </a>
+                    <ul class="dropdown-menu extended inbox">
+                        <div class="notify-arrow notify-arrow-green"></div>
+                        <li>
+                            <p class="green">You have 5 new messages</p>
+                        </li>
+                        <li>
+                            <a href="index.html#">
+                                <span class="photo"><img alt="avatar" src="../assets/img/ui-zac.jpg"></span>
+                                <span class="subject">
+                                    <span class="from">Zac Snider</span>
+                                    <span class="time">Just now</span>
+                                    </span>
+                                <span class="message">
+                                        Hi mate, how is everything?
+                                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#">
+                                <span class="photo"><img alt="avatar" src="../assets/img/ui-divya.jpg"></span>
+                                <span class="subject">
+                                    <span class="from">Divya Manian</span>
+                                    <span class="time">40 mins.</span>
+                                    </span>
+                                <span class="message">
+                                     Hi, I need your help with this.
+                                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#">
+                                <span class="photo"><img alt="avatar" src="../assets/img/ui-danro.jpg"></span>
+                                <span class="subject">
+                                    <span class="from">Dan Rogers</span>
+                                    <span class="time">2 hrs.</span>
+                                    </span>
+                                <span class="message">
+                                        Love your new Dashboard.
+                                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#">
+                                <span class="photo"><img alt="avatar" src="../assets/img/ui-sherman.jpg"></span>
+                                <span class="subject">
+                                    <span class="from">Dj Sherman</span>
+                                    <span class="time">4 hrs.</span>
+                                    </span>
+                                <span class="message">
+                                        Please, answer asap.
+                                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#">See all messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- inbox dropdown end -->
+            </ul>
+            <!--  notification end -->
+        </div>
+        <div class="top-menu">
+            <ul class="nav pull-right top-menu">
+                <li><a class="logout" href="login.html">Logout</a></li>
+            </ul>
+        </div>
+    </header>
+    <!--header end-->
+
+    <!-- **********************************************************************************************************************************************************
+    MAIN SIDEBAR MENU
+    *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul pos="#" class="sidebar-menu" id="nav-accordion">
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel2"></h4>
+                </div>
+                <div class="modal-body" id="text"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="new_del">确定</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--sidebar end-->
+
+    <!-- **********************************************************************************************************************************************************
+    MAIN CONTENT
+    *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section class="col-md-9" id="main-content" style="height: 70%;width: 80%;position: absolute;margin-top:5px ">
+
+        <section class="createwrap">
+            <input type="button" class="btn btn-success  btn-s" value="修改" id="chang">
+            <div>
+                <div id="summernote"><h1>Hello S</h1>
+                    <p>ummern<span style="background-color: rgb(255, 0, 0);">ote13<font color="#ffd663">多福多寿<font
+                            face="Arial Black">艾斯<b>德斯多</b></font></font></span></p></div>
+            </div>
+        </section>
+        <! --/wrapper -->
+        <div style="text-align: center;"><input style="display:none;" type="button" class="btn btn-success btn-lg btn-s"
+                                                value="提交" hidden="true" id="submit"></div>
+
+
+    </section><!-- /MAIN CONTENT -->
+
+</section>
+
+<!-- js placed at the end of the document so the pages load faster -->
+
+<script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="../assets/js/jquery.scrollTo.min.js"></script>
+<script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+<!--common script for all pages-->
+<script src="../assets/js/common-scripts.js"></script>
+
+<!--script for this page-->
+<script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
+<script src="../assets/js/summernote.js"></script>
+<script src="../assets/css/lang/summernote-zh-CN.js"></script>
+<script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
+<script>
+    var string1 = "poi1:1*poi2:2*kuma:#*kuma1:4*wo:#*!*!*poi3:3*!*";//"2:mt*3:#*5:mt*6:mt*!*4:mt";
+
+    function i(string) {
+        var result = "";
+        result += "<p class='centered'><a title='个人中心' href='#'><img src='../assets/img/ui-sam.jpg' class='img-circle' width='60'></a></p>" +
+            "<h5 class='centered'>Jarvis</h5>" +
+
+            "<li class='mt'> <a href='calendar.html'> <i class='fa fa-calendar'></i> <span>日历</span> </a> </li>";
+        var strs = new Array();//有：
+        var split = new Array();//唔：
+        var stack = [];//栈
+        strs = string.split("*");
+        var length = strs.length;
+        stack.push("#");
+        var pre = 0;
+//      alert(strs[0])
+        while (pre < length - 1) {
+            if (strs[pre] == "!") {
+                result = result + "</ul></li>";
+                pre++;
+                continue;
+            }
+            split = strs[pre].split(":");
+            pre++;
+            //result = result+"<li>"+split[0];
+            var predir = stack[stack.length - 1];
+            stack.push(split[0]);
+            if (split[1] != "#") {
+                stack.pop();
+                result = result + "<li ><a class = 'click' address='" + split[1] + "'>" + split[0] + "</a></li>";//
+            } else {
+                result = result + "<li class='sub-menu'><a href='javascript:;' pre ='" + predir + "' class='iiii'><i class='fa fa-book'></i><span>"
+                    + split[0] + "</span></a><ul class='sub' >";
+            }
+        }
+
+        document.getElementById("nav-accordion").innerHTML = result;
+    }
+    i(string1);
+    //      alert(result);
+    //      for(i = 0; i < strs.length; i++){
+    //          alert(strs[i]);
+    //      }
+</script>
+<script>
+    $("#chang").click(function () {
+        $("#chang").hide();
+        $("#submit").show();
+        var height = $(window).height() * 0.7;
+        $(document).ready(function () {
+            $('#summernote').summernote({
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture']],
+                    ['view', ['codeview']],
+                ],
+                height: height,                 // set editor height
+                minHeight: height,             // set minimum height of editor
+                maxHeight: height,             // set maximum height of editor
+                focus: true,                  // set focus to editable area after initializing summernote
+                lang: 'zh-CN'
+            });
+        })
+    })
+</script>
+<script>
+    alert(location.href);
+    var ad = location.href;
+    var t = ad.split("/");
+    var id = t[t.length - 1];
+    $('#submit').click(function () {
+        $.ajax({
+            type: "POST",
+            url: address,
+            data: {text: $("#summernote").html(), id: id},
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            error: function (XMLHttpRequest, textStatus, errorThrown) {//请求错误
+                alert(XMLHttpRequest.status + XMLHttpRequest.readyState + textStatus);
+            },
+            success: function (data) {
+                if (data.errCode == -1) {
+                    alert(-1)
+                    //                          逻辑错误的操作
+                } else if (data.errCode == 0) {
+                    //成功进行解析显示
+                    alert(1)
+                }
+            }
+        });
+    })
+</script>
+<script>
+    $(".click").click(function () {
+        var address = $(this).attr("address");
+        alert(address)
+//        $(function () {
+//            $('#submit').click(function () {
+//                $.ajax({
+//                    type:"POST",
+//                    url: address,
+//                    data :{username:$("#username").val(),email:$("#email").val(),password:$("#password").val()},
+//                    xhrFields: {
+//                        withCredentials: true
+//                    },
+//                    crossDomain: true,
+//                    error:function(XMLHttpRequest, textStatus, errorThrown) {//请求错误
+//                        alert(XMLHttpRequest.status+XMLHttpRequest.readyState+textStatus);
+//                    },
+//                    success:function(data){
+//                        if(data.errCode==-1){
+//                            alert(-1)
+//                            //                          逻辑错误的操作
+//                        }else if(data.errCode == 0){
+//                            //成功进行解析显示
+//                            alert(1)
+//                        }
+//                    }
+//                });
+//            })
+//
+//        })
+    });
+</script>
+
+<script>
+
+</script>
+<script src="../assets/js/bootstrap-contextmenu.js"></script>
+<script src="../assets/js/prettify.js"></script>
+
+<script>
+    var dir;
+    var data_type;
+    $('.iiii').contextmenu({
+        target: '#context-menu2',
+        before: function (e) {
+            $("#text").html("");
+            // This function is optional.
+            // Here we use it to stop the event if the user clicks a span
+            e.preventDefault();
+            if (e.target.tagName == 'SPAN') {
+                e.preventDefault();
+                this.closemenu();
+                return false;
+            }
+            return true;
+        },
+        onItem: function (context, e) {
+            dir = context.text();
+            var d = context;
+            while (d.attr("pre") != "#") {
+                dir = d.attr("pre") + "/" + dir;
+                d = d.parent().parent().parent().children(":first");
+            }
+            if ($(e.target).text() == "删除文件夹") {
+                data_type = "deldir";
+                $("#myModalLabel2").text("删除文件夹？")
+            } else {
+                if ($(e.target).text() == "新建文件夹") {
+                    data_type = "newdir";
+                    $("#text").html("文件夹名字 ：  <input type='text' class='form-control' id='name' placeholder='名称' autofocus>");
+                } else if ($(e.target).text() == "新建笔记") {
+                    data_type = "newfile";
+                    $("#text").html("标题 ：  <input type='text' class='form-control' id='name' placeholder='标题' autofocus>");
+                }
+                $("#myModalLabel2").text("新建文件/文件夹");
+
+            }
+            $("#myModal2").modal('show');
+
+        }
+    });
+    $("#new_del").click(function () {
+        if ($("#name").val() != "") {
+            if (data_type != "deldir" && data_type != "delfile") {
+                dir = dir + "/" + $("#name").val();
+            }
+            alert(dir);
+            $.ajax({
+                type: "POST",
+                url: "http://localhost",
+                data: {data_type: data_type, dir: dir},
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                error: function (XMLHttpRequest, textStatus, errorThrown) {//请求错误
+                    alert(XMLHttpRequest.status + XMLHttpRequest.readyState + textStatus);
+                },
+                success: function (data) {
+                    if (data.errCode == -1) {
+                        alert(-1)
+                        //                          逻辑错误的操作
+                    } else if (data.errCode == 0) {
+                        //成功进行解析显示
+                        alert(1)
+                    }
+                }
+            });
+        } else {
+            alert("名称不能为空");
+        }
+        $("#myModal2").modal('hide')
+    });
+</script>
+<script>
+    var filedir;
+    $('.click').contextmenu({
+        target: '#context-menu1',
+        before: function (e) {
+            // This function is optional.
+            // Here we use it to stop the event if the user clicks a span
+            e.preventDefault();
+            if (e.target.tagName == 'SPAN') {
+                e.preventDefault();
+                this.closemenu();
+                return false;
+            }
+            return true;
+        },
+        onItem: function (context, e) {
+            filedir = context.text();
+            if (context.parent().parent().attr("pos") != "#") {
+                var dt = context.parent().parent().parent().children(":first");
+                do {
+                    filedir = dt.text() + "/" + filedir;
+                    dt = dt.parent().parent().parent().children(":first");
+                } while (dt.attr("pre") == "#")
+            }
+            alert(filedir);
+            if ($(e.target).text() == "删除") {
+                data_type = "delfile";
+                dir = filedir;
+                $("#myModalLabel2").text("删除文件？")
+            } else if ($(e.target).text() == "修改标题") {
+                data_type = "changName";
+                dir = filedir;
+                $("#text").html("标题名称 ：  <input type='text' class='form-control' id='name' placeholder='名称' autofocus>");
+                $("#myModalLabel2").text("修改标题")
+            }
+            $("#myModal2").modal('show');
+        },
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summernote</title>
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <link href="../assets/css/summernote.css" rel="stylesheet">
+    <script src="../assets/js/summernote.js"></script>
+    <script src="../assets/css/lang/summernote-zh-CN.js"></script>
+</head>
+<body>
+<div id="summernote"><p>Hello Summernote</p></div>
+<script>
+    $(document).ready(function () {
+//        var markupStr = 'hello world';
+        var HelloButton = function (context) {
+            var ui = $.summernote.ui;
+
+            // create button
+            var button = ui.button({
+                contents: '<i class="fa fa-child"/> Hello',
+                tooltip: 'hello',
+                click: function () {
+                    // invoke insertText method with 'hello' on editor module.
+                    context.invoke('editor.insertText', 'hello');
+                }
+            });
+
+            return button.render();   // return button as jquery object
+        }
+        $('#summernote').summernote({
+            popover: {
+                air: [
+                    ['color', ['color']],
+                    ['font', ['bold', 'underline', 'clear']]
+                ]
+            }
+        });
+//        $('#summernote').summernote(
+////                {
+////                    lang: 'zh-CN',
+////                    height: 300,                 // set editor height
+////                    minHeight: 300,             // set minimum height of editor
+////                    maxHeight: 300,             // set maximum height of editor
+////                    focus: true                  // set focus to editable area after initializing summernote
+////                }
+//                {toolbar: [
+//            ['mybutton', ['hello']]
+//        ],
+//
+//                buttons: {
+//            hello: HelloButton
+//        }}
+//        );
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="a">
+    <ul value="#">
+        <li class="first">1</li>
+
+        <li class="first">2
+            <ul value="2">
+                <li>7</li>
+                <li id="l">8
+                    <ul value="8" id="start">
+                        <li>9</li>
+                        <li>10</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="first">3</li>
+        <li class="first">4</li>
+        <li class="first">5</li>
+        <li class="first">6</li>
+    </ul>
+
+</div>
+
+</body>
+<script>
+    alert($('#l').text())
+    //    var string =null
+    var s = $("#start");
+    while (s.attr("value") != "#") {
+        alert(s.attr("value"));
+        s = s.parent().parent();
+    }
+</script>
+</html>
