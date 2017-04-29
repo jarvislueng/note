@@ -8,7 +8,6 @@
     text-transform: uppercase;
     font-weight: 300;
 }
-
 .gradient { /*颜色渐变*/
     background: #dddcdc;
     background: -moz-linear-gradient(top, #dddcdc 0%, #ffffff 100%);
