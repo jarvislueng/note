@@ -251,14 +251,14 @@
     *********************************************************************************************************************************************************** -->
     <!--main content start-->
     <section class="col-md-9" id="main-content" style="height: 70%;width: 80%;position: absolute;margin-top:20px " >
-        <section class="createwrap">
+        <section class="createwrap" ng-app="" ng-init="focus=123456789;foer=987654321;like=12;conment=14">
             <!--<input type="button" class="btn btn-success  btn-s" value="修改" id="chang">-->
             <!--<div>-->
                 <!--<div id="summernote"><h1>Hello S</h1>-->
                     <!--<p>ummern<span style="background-color: rgb(255, 0, 0);">ote13<font color="#ffd663">多福多寿<font-->
                             <!--face="Arial Black">艾斯<b>德斯多</b></font></font></span></p></div>-->
             <!--</div>-->
-            <aside ng-app="" class="col-md-2 mt"  ng-init="focus=123456789;foer=987654321">
+            <aside  class="col-md-2 mt"  >
                 <section class="panel panel-default" style="text-align: center">
                     <h4>关注了</h4>
                     <h5>{{ focus|number }}</h5>
@@ -269,39 +269,43 @@
                     </div>
                 </section>
             </aside>
-            <aside class="col-md-10 mt" ng-init="like=500;conment:400">
+            <aside class="col-md-10 mt">
                 <section class="panel panel-default">
                     <div class="panel-body">
                         <ul id="myTab"  class="nav nav-tabs">
-                            <li class="active">
-                                <a href="#" data-toggle="tab">
-                                    动态
-                                </a>
-                            </li>
-                            <li><a href="#jmeter" data-toggle="tab">评论{{conment}}</a></li>
+                            <li class="active"><a href="#jmeter" data-toggle="tab">评论<br><small>{{ conment|number }}</small></a></li>
                             <li class="dropdown">
-                                <a href="#ejb" data-toggle="tab">点赞{{like}}</a>
+                                <a href="#ejb" data-toggle="tab">点赞<br><small>{{ like|number }}</small></a>
                             </li>
                         </ul>
-                        <div id="myTabContent"style="height: 400px" class="tab-content">
-                            <div class="tab-pane fade in active" id="home">
-                                <p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
-                            </div>
-                            <div class="tab-pane fade" id="ios">
-                                <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
-                                    TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
-                            </div>
-                            <div class="tab-pane fade" id="jmeter">
-                                作者：伊比利亚猞猁
-                                链接：https://www.zhihu.com/question/19774340/answer/132525239
-                                来源：知乎
-                                著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
-                                1.什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？_JAVA常考面试题_牛客网2.JDK和JRE的区别是什么？_JAVA常考面试题_牛客网3.”static”关键字是什么意思？Java中是否可以覆盖(override)一个private或者是static的方法？_JAVA常考面试题_牛客网4.是否可以在static环境中访问非static变量？_JAVA常考面试题_牛客网5.Java中的方法覆盖(Overriding)和方法重载(Overloading)是什么意思？_JAVA常考面试题_牛客网6.Java支持的数据类型有哪些？什么是自动拆装箱？_JAVA常考面试题_牛客网7.Java中，什么是构造函数？什么是构造函数重载？什么是复制构造函数？_JAVA常考面试题_牛客网8.Java支持多继承么？_JAVA常考面试题_牛客网9.接口和抽象类的区别是什么？_JAVA常考面试题_牛客网10.什么是值传递和引用传递？_JAVA常考面试题_牛客网11.进程和线程的区别是什么？_JAVA常考面试题_牛客网12.创建线程有几种不同的方式？你喜欢哪一种？为什么？_JAVA常考面试题_牛客网13.概括的解释下线程的几种可用状态。_JAVA常考面试题_牛客网14.同步方法和同步代码块的区别是什么？_JAVA常考面试题_牛客网15.在监视器(Monitor)内部，是如何做线程同步的？程序应该做哪种级别的同步？_JAVA常考面试题_牛客网16.什么是死锁(deadlock)？_JAVA常考面试题_牛客网17.如何确保N个线程可以访问N个资源同时又不导致死锁？_JAVA常考面试题_牛客网18.Java集合类框架的基本接口有哪些？_JAVA常考面试题_牛客网19.为什么集合类没有实现Cloneable和Serializable接口？_JAVA常考面试题_牛客网20.什么是迭代器(Iterator)？_JAVA常考面试题_牛客网21.Iterator和ListIterator的区别是什么？_JAVA常考面试题_牛客网22.快速失败(fail-fast)和安全失败(fail-safe)的区别是什么？_JAVA常考面试题_牛客网23.Java中的HashMap的工作原理是什么？_JAVA常考面试题_牛客网24.hashCode()和equals()方法的重要性体现在什么地方？_JAVA常考面试题_牛客网25.数组(Array)和列表(ArrayList)有什么区别？什么时候应该使用Array而不是ArrayList？_JAVA常考面试题_牛客网26.ArrayList和LinkedList有什么区别？_JAVA常考面试题_牛客网27.Comparable和Comparator接口是干什么的？列出它们的区别。_JAVA常考面试题_牛客网28.什么是Java优先级队列(Priority Queue)？_JAVA常考面试题_牛客网29.你了解大O符号(big-O notation)么？你能给出不同数据结构的例子么？_JAVA常考面试题_牛客网30.如何权衡是使用无序的数组还是有序的数组？_JAVA常考面试题_牛客网31.Java集合类框架的最佳实践有哪些？_JAVA常考面试题_牛客网32.Enumeration接口和Iterator接口的区别有哪些？_JAVA常考面试题_牛客网33.HashSet和TreeSet有什么区别？_JAVA常考面试题_牛客网34.Java中垃圾回收有什么目的？什么时候进行垃圾回收？_JAVA常考面试题_牛客网35.System.gc()和Runtime.gc()会做什么事情？_JAVA常考面试题_牛客网36.finalize()方法什么时候被调用？析构函数(finalization)的目的是什么？_JAVA常考面试题_牛客网37.如果对象的引用被置为null，垃圾收集器是否会立即释放对象占用的内存？_JAVA常考面试题_牛客网38.Java堆的结构是什么样子的？什么是堆中的永久代(Perm Gen space)?_JAVA常考面试题_牛客网39.串行(serial)收集器和吞吐量(throughput)收集器的区别是什么？_JAVA常考面试题_牛客网40.System.gc()和Runtime.gc()会做什么事情？_JAVA常考面试题_牛客网41.在Java中，对象什么时候可以被垃圾回收？_JAVA常考面试题_牛客网42.JVM的永久代中会发生垃圾回收么？_JAVA常考面试题_牛客网43.Java中的两种异常类型是什么？他们有什么区别？_JAVA常考面试题_牛客网44.Java中Exception和Error有什么区别？_JAVA常考面试题_牛客网45.throw和throws有什么区别？_JAVA常考面试题_牛客网46.异常处理完成以后，Exception对象会发生什么变化？_JAVA常考面试题_牛客网47.finally代码块和finalize()方法有什么区别？_JAVA常考面试题_牛客网48.什么是Applet？_JAVA常考面试题_牛客网49.解释一下Applet的生命周期_JAVA常考面试题_牛客网50.当applet被载入的时候会发生什么？_JAVA常考面试题_牛客网51.Applet和普通的Java应用程序有什么区别？_JAVA常考面试题_牛客网52.Java applet有哪些限制条件？_JAVA常考面试题_牛客网53.什么是不受信任的applet？_JAVA常考面试题_牛客网54.从网络上加载的applet和从本地文件系统加载的applet有什么区别？_JAVA常考面试题_牛客网55.applet类加载器是什么？它会做哪些工作？_JAVA常考面试题_牛客网56.applet安全管理器是什么？它会做哪些工作？_JAVA常考面试题_牛客网57.弹出式选择菜单(Choice)和列表(List)有什么区别_JAVA常考面试题_牛客网58.什么是布局管理器？_JAVA常考面试题_牛客网59.滚动条(Scrollbar)和滚动面板(JScrollPane)有什么区别？_JAVA常考面试题_牛客网60.哪些Swing的方法是线程安全的？_JAVA常考面试题_牛客网61.说出三种支持重绘(painting)的组件。_JAVA常考面试题_牛客网62.什么是裁剪(clipping)？_JAVA常考面试题_牛客网63.MenuItem和CheckboxMenuItem的区别是什么？_JAVA常考面试题_牛客网64.边缘布局(BorderLayout)里面的元素是如何布局的？_JAVA常考面试题_牛客网65.网格包布局(GridBagLayout)里面的元素是如何布局的？_JAVA常考面试题_牛客网66.Window和Frame有什么区别？_JAVA常考面试题_牛客网67.裁剪(clipping)和重绘(repainting)有什么联系？_JAVA常考面试题_牛客网68.事件监听器接口(event-listener interface)和事件适配器(event-adapter)有什么关系？_JAVA常考面试题_牛客网69.GUI组件如何来处理它自己的事件？_JAVA常考面试题_牛客网70.Java的布局管理器比传统的窗口系统有哪些优势？_JAVA常考面试题_牛客网71.Java的Swing组件使用了哪种设计模式？_JAVA常考面试题_牛客网72.什么是JDBC？_JAVA常考面试题_牛客网73.解释下驱动(Driver)在JDBC中的角色。_JAVA常考面试题_牛客网74.Class.forName()方法有什么作用？_JAVA常考面试题_牛客网75.PreparedStatement比Statement有什么优势？_JAVA常考面试题_牛客网76.什么时候使用CallableStatement？用来准备CallableStatement的方法是什么？_JAVA常考面试题_牛客网77.数据库连接池是什么意思？_JAVA常考面试题_牛客网78.什么是RMI？_JAVA常考面试题_牛客网79.RMI体系结构的基本原则是什么？_JAVA常考面试题_牛客网80.RMI体系结构分哪几层？_JAVA常考面试题_牛客网81.RMI中的远程接口(Remote Interface)扮演了什么样的角色？_JAVA常考面试题_牛客网82.java.rmi.Naming类扮演了什么样的角色？_JAVA常考面试题_牛客网83.RMI的绑定(Binding)是什么意思？_JAVA常考面试题_牛客网84.Naming类的bind()和rebind()方法有什么区别？_JAVA常考面试题_牛客网85.让RMI程序能正确运行有哪些步骤？_JAVA常考面试题_牛客网86.RMI的stub扮演了什么样的角色？_JAVA常考面试题_牛客网87.什么是分布式垃圾回收(DGC)？它是如何工作的？_JAVA常考面试题_牛客网88.RMI中使用RMI安全管理器(RMISecurityManager)的目的是什么？_JAVA常考面试题_牛客网89.解释下Marshalling和demarshalling。_JAVA常考面试题_牛客网
+                        <div id="myTabContent"style="height: 500px" class="tab-content">
+                            <div class="tab-pane fade in active" id="jmeter">
+                                <span class="www">
+                                    <h5>有人觉得您的文章很赞</h5>
+                                    <div style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
+                                        <img style="width:100px; height:100px;" src="../assets/img/1.jpg">
+                                    </div>
+                                    <p><em>jarvis:  </em>您写得文章太好的</p>
+                                </span>
                             </div>
                             <div class="tab-pane fade" id="ejb">
-                                <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
-                                </p>
+                                <span class="www">
+                                    <h5>别人评论了你的文章</h5>
+                                    <p style="text-indent:2em;">Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。</p>
+                                        <div id="conment"style="text-align: inherit">
+                                            <small><em>jarvis:  </em>123456789</small><br>
+                                            <small><em>jarvis:  </em>123456789</small><br>
+                                        </div>
+                                    </p>
+                                    <a href='#collapseOne-123456' data-toggle="collapse"> <i class='fa fa-comment'></i>
+                                    </a>
+                                    <div class="collapse" id="collapseOne-123456">
+                                        <div class="input-sm col-sm-8">
+                                            <input type="text" id="conmenttext-123456" class="form-control" style="height: 90%">
+                                        </div>
+                                        <button type="submit" class="su" textid="123456">提交</button>
+                                    </div>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -329,7 +333,7 @@
 <!-- js placed at the end of the document so the pages load faster -->
 
 <script src="../assets/js/fullcalendar/fullcalendar.min.js"></script>
-<script src="../assets/js/calendar-conf-events.js"></script>
+<!--<script src="../assets/js/calendar-conf-events.js"></script>-->
 
 
 <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
@@ -428,7 +432,39 @@
 //        })
     });
 </script>
+<script>
+    $('.su').click(function () {
+        var id = $(this).attr("textid");
+//        alert($("#conmenttext-"+id).val());
+        var conment = $("#conmenttext-"+id).val();
+        $("#conmenttext-"+id).val("");
+        $.ajax({
 
+            type:"POST",
+            url: "127.0.0.1",
+            data :{commnet:conment,textid:id},
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            error:function(XMLHttpRequest, textStatus, errorThrown) {//请求错误
+                $("#collapseOne-"+id).collapse('hide')
+                alert(XMLHttpRequest.status+XMLHttpRequest.readyState+textStatus);
+            },
+            success:function(data){
+                $("#collapseOne-"+id).collapse('hide')
+                if(data.errCode==-1){
+                    alert(-1)
+                    //                          逻辑错误的操作
+                }else if(data.errCode == 0){
+                    //成功进行解析显示
+//                $(".collapse").collapse(hide)
+                    alert(1)
+                }
+            }
+        });
+    })
+</script>
 <script>
 
 </script>
@@ -550,6 +586,53 @@
             $("#myModal2").modal('show');
         },
     });
+</script>
+
+
+<script>
+    //日历初始化
+    var Script = function () {
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prevYear,prev,today,next,nextYear',
+                center: 'title',
+                right: 'month,basicWeek,basicDay'
+            },
+            editable: false,
+            droppable: false,
+            titleFormat: {
+                month: 'MMMM yyyy', // September 2009
+                week: "MMM d[ yyyy]{'&#8212;'[ MMM] d yyyy}", // Sep 7 - 13 2009
+                day: 'dddd, MMM d, yyyy'// Tuesday, Sep 8, 2009
+            },
+            events: [
+                                {
+                    title: 'Lunch',
+                    start: new Date(y, m, d, 12, 0),
+                    end: new Date(y, m, d, 14, 0),
+                    allDay: false,
+                    url: 'http://google.com/'
+                },
+                {
+                    title: 'Birthday Party',
+                    start: new Date(y, m, d + 1, 19, 0),
+                    end: new Date(y, m, d + 1, 22, 30),
+                    allDay: false,
+                    url: 'http://google.com/'
+                },
+                {
+                    title: 'Click for Google',
+                    start: new Date(y, m, 28),
+                    end: new Date(y, m, 29),
+                    url: 'http://google.com/'
+                }
+            ]
+        });
+    }();
 </script>
 </body>
 </html>

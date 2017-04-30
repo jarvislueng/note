@@ -18,7 +18,17 @@
     background: linear-gradient(to bottom, #dddcdc 0%, #ffffff 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddcdc', endColorstr='#ffffff', GradientType=0);
 }
-
+.www {
+    position: absolute;
+    //bottom: 0;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid gainsboro;
+    content: "";
+}
+.www h5{
+    color: black;
+}
 :root .gradient {
     filter: none;
 }
