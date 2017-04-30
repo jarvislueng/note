@@ -9,22 +9,20 @@
 
     <title>笔记本</title>
 
-    <link href="../assets/js/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet"/>
-
-    <!-- Bootstrap core CSS -->
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/prettify.css" type="text/css">
-    <!--<script src="../assets/js/jquery.js"></script>-->
+    <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/jquery-1.8.3.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/summernote.css" rel="stylesheet">
+
     <link href="../assets/css/create.css" rel="stylesheet">
     <!--external css-->
     <link href="../assets/lineicons/style.css" rel="stylesheet"/>
     <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css"/>
 
-    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
     <!-- Custom styles for this template -->
     <link href="../assets/css/style.css" rel="stylesheet">
     <link href="../assets/css/style-responsive.css" rel="stylesheet">
@@ -209,6 +207,22 @@
             </ul>
             <!--  notification end -->
         </div>
+        <div class="col-sm-5" style="text-align: center; padding-top: 10px;">
+            <form action="#"><!--这里是搜索的表单-->
+                <div class="input-group">
+                    <div class="input-icon-group">
+
+                        <input type="text" class="form-control fc-clear" onkeydown='if(event.keyCode==13){gosubmit();}'>
+                        <span id="scan" data-role="md" class="md md-center-focus-weak fa-lg input-icon input-icon-md" style="display: inline;"></span>
+                    </div>
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit">
+                            搜索
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
                 <li><a class="logout" href="login.html">Logout</a></li>
@@ -250,114 +264,46 @@
     MAIN CONTENT
     *********************************************************************************************************************************************************** -->
     <!--main content start-->
-    <section class="col-md-9" id="main-content" style="height: 70%;width: 80%;position: absolute;margin-top:20px " >
-        <section class="createwrap" ng-app="" ng-init="focus=123456789;foer=987654321;like=12;conment=14">
-            <!--<input type="button" class="btn btn-success  btn-s" value="修改" id="chang">-->
-            <!--<div>-->
-                <!--<div id="summernote"><h1>Hello S</h1>-->
-                    <!--<p>ummern<span style="background-color: rgb(255, 0, 0);">ote13<font color="#ffd663">多福多寿<font-->
-                            <!--face="Arial Black">艾斯<b>德斯多</b></font></font></span></p></div>-->
-            <!--</div>-->
-            <aside  class="col-md-2 mt"  >
-                <section class="panel panel-default" style="text-align: center">
-                    <h4>关注了</h4>
-                    <h5>{{ focus|number }}</h5>
-                    <!--<hr size="1" color="#999999">-->
-                    <hr color="red" width="100%" size="100%">
-                    <h4>关注者</h4>
-                    <h5>{{ foer|number }}</h5>
-                    </div>
-                </section>
-            </aside>
-            <aside class="col-md-10 mt">
-                <section class="panel panel-default">
-                    <div class="panel-body">
-                        <ul id="myTab"  class="nav nav-tabs">
-                            <li class="active"><a href="#jmeter" data-toggle="tab">点赞<br><small>{{ like|number }}</small></a></li>
-                            <li class="dropdown">
-                                <a href="#ejb" data-toggle="tab">评论<br><small>{{ conment|number }}</small></a>
-                            </li>
-                        </ul>
-                        <div id="myTabContent"style="height: 500px" class="tab-content">
-                            <div class="tab-pane fade in active" id="jmeter">
-                                <span class="www">
-                                    <h5>有人觉得您的文章很赞</h5>
-                                    <div style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
-                                        <img style="width:100px; height:100px;" src="../assets/img/1.jpg">
-                                    </div>
-                                    <p><em>jarvis:  </em>您写得文章太好的</p>
-                                </span><span class="www">
-                                    <h5>有人觉得您的文章的范德萨发生大发</h5>
-                                    <div style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
-                                        <img style="width:100px; height:100px;" src="../assets/img/1.jpg">
-                                    </div>
-                                    <p><em>jarvis:  </em>您写得文章太好的</p>
-                                </span>
-                            </div>
-                            <div class="tab-pane fade" id="ejb">
-                                <span class="www">
-                                    <h5>别人评论了你的文章</h5>
-                                    <p style="text-indent:2em;">Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。</p>
-                                        <div id="conment-123456"style="text-align: inherit">
-                                            <small><em>jarvis:  </em>123456789</small><br>
-                                            <small><em>jarvis:  </em>123456789</small><br>
-                                        </div>
-                                    </p>
-                                    <a href='#collapseOne-123456' data-toggle="collapse"> <i class='fa fa-comment'></i>
-                                    </a>
-                                    <div class="collapse" id="collapseOne-123456">
-                                        <div class="input-sm col-sm-8">
-                                            <input type="text" id="conmenttext-123456" class="form-control" style="height: 90%">
-                                        </div>
-                                        <button type="submit" class="su" textid="123456">提交</button>
-                                    </div>
-                                </span>
-                                <span class="www">
-                                    <h5>别人评论了你的文章</h5>
-                                    <p style="text-indent:2em;">Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。</p>
-                                        <div id="conment-456"style="text-align: inherit">
-                                            <small><em>jarvis:  </em>123456789</small><br>
-                                            <small><em>jarvis:  </em>123456789</small><br>
-                                        </div>
-                                    </p>
-                                    <a href='#collapseOne-456' data-toggle="collapse"> <i class='fa fa-comment'></i>
-                                    </a>
-                                    <div class="collapse" id="collapseOne-456">
-                                        <div class="input-sm col-sm-8">
-                                            <input type="text" id="conmenttext-456" class="form-control" style="height: 90%">
-                                        </div>
-                                        <button type="submit" class="su" textid="456">提交</button>
-                                    </div>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </aside>
+    <section class="col-md-9" id="main-content" style="height: 70%;width: 90%;position: absolute;margin-top:5px ">
 
-
-            <aside class="col-md-12 mt">
-                <section class="panel panel-default">
-                    <div class="panel-body">
-                        <div id="calendar" class="has-toolbar"></div>
+        <section class="createwrap">
+            <div class="www row hw">
+                <div class="col-md-2">
+                    <div style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
+                        <img style="width:100px; height:100px;" src="../assets/img/1.jpg">
                     </div>
-                </section>
-            </aside>
+                    <i style="font-size: 25px;padding-top: 10px" class='fa fa-heart'>100</i>
+                </div>
+                <div class="col-md-9">
+                    <a href="#" style="color: grey">
+                        <h2>搜索示例</h2>
+                        <h5>这里要200字吧，一篇文章从后台中摘去出来</h5>
+                    </a>
+                    <div style="text-align: end">作者是jarvis发布于2017-04-30</div>
+                </div>
+            </div>
+            <div class="www row hw">
+                <div class="col-md-2">
+                    <div style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
+                        <img style="width:100px; height:100px;" src="../assets/img/1.jpg">
+                    </div>
+                    <i style="font-size: 25px;padding-top: 10px" class='fa fa-heart'>100</i>
+                </div>
+                <div class="col-md-9">
+                    <a href="#" style="color: grey">
+                        <h2>搜索示例</h2>
+                        <h5>这里要200字吧，一篇文章从后台中摘去出dvfdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd来</h5>
+                    </a>
+                    <div style="text-align: end">作者是jarvis发布于2017-04-30</div>
+                </div>
+            </div>
         </section>
         <! --/wrapper -->
-        <!--<div style="text-align: center;"><input style="display:none;" type="button" class="btn btn-success btn-lg btn-s"-->
-                                                <!--value="提交" hidden="true" id="submit"></div>-->
-
-
     </section><!-- /MAIN CONTENT -->
 
 </section>
 
 <!-- js placed at the end of the document so the pages load faster -->
-
-<script src="../assets/js/fullcalendar/fullcalendar.min.js"></script>
-<!--<script src="../assets/js/calendar-conf-events.js"></script>-->
-
 
 <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
 <script src="../assets/js/jquery.scrollTo.min.js"></script>
@@ -369,23 +315,16 @@
 
 <!--script for this page-->
 <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
-<!--<script src="../assets/css/lang/summernote-zh-CN.js"></script>-->
 <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
 <script>
-    //设置高度
-//    var obj = document.getElementById("myTabContent");
-//    var height = document.body.clientHeight;
-//    obj.style.cssText = "height:"+height*0.8;
-</script>
-<script>
     var string1 = "poi1:1*poi2:2*kuma:#*kuma1:4*wo:#*!*!*poi3:3*!*";//"2:mt*3:#*5:mt*6:mt*!*4:mt";
-//文件目录树反序列
+    //文件目录树反序列
     function i(string) {
         var result = "";
         result += "<p class='centered'><a title='个人中心' href='#'><img src='../assets/img/ui-sam.jpg' class='img-circle' width='60'></a></p>" +
-            "<h5 class='centered'>Jarvis</h5>" +
+                "<h5 class='centered'>Jarvis</h5>" +
 
-            "<li class='mt'> <a href='calendar.html'> <i class='fa fa-calendar'></i> <span>日历</span> </a> </li>";
+                "<li class='mt'> <a href='calendar.html'> <i class='fa fa-calendar'></i> <span>日历</span> </a> </li>";
         var strs = new Array();//有：
         var split = new Array();//唔：
         var stack = [];//栈
@@ -410,7 +349,7 @@
                 result = result + "<li ><a class = 'click' address='" + split[1] + "'>" + split[0] + "</a></li>";//
             } else {
                 result = result + "<li class='sub-menu'><a href='javascript:;' pre ='" + predir + "' class='iiii'><i class='fa fa-book'></i><span>"
-                    + split[0] + "</span></a><ul class='sub' >";
+                        + split[0] + "</span></a><ul class='sub' >";
             }
         }
 
@@ -423,72 +362,6 @@
     //      }
 </script>
 
-<script>
-    $(".click").click(function () {
-        var address = $(this).attr("address");
-        alert(address)
-//        $(function () {
-//            $('#submit').click(function () {
-//                $.ajax({
-//                    type:"POST",
-//                    url: address,
-//                    data :{username:$("#username").val(),email:$("#email").val(),password:$("#password").val()},
-//                    xhrFields: {
-//                        withCredentials: true
-//                    },
-//                    crossDomain: true,
-//                    error:function(XMLHttpRequest, textStatus, errorThrown) {//请求错误
-//                        alert(XMLHttpRequest.status+XMLHttpRequest.readyState+textStatus);
-//                    },
-//                    success:function(data){
-//                        if(data.errCode==-1){
-//                            alert(-1)
-//                            //                          逻辑错误的操作
-//                        }else if(data.errCode == 0){
-//                            //成功进行解析显示
-//                            alert(1)
-//                        }
-//                    }
-//                });
-//            })
-//
-//        })
-    });
-</script>
-<script>
-    $('.su').click(function () {
-        var id = $(this).attr("textid");
-//        alert($("#conmenttext-"+id).val());
-        var conment = $("#conmenttext-"+id).val();
-        $("#conmenttext-"+id).val("");
-        $.ajax({
-
-            type:"POST",
-            url: "127.0.0.1",
-            data :{commnet:conment,textid:id},
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-            error:function(XMLHttpRequest, textStatus, errorThrown) {//请求错误
-                $("#collapseOne-"+id).collapse('hide')
-                window.location.reload()
-                alert(XMLHttpRequest.status+XMLHttpRequest.readyState+textStatus);
-            },
-            success:function(data){
-                $("#collapseOne-"+id).collapse('hide')
-                if(data.errCode==-1){
-                    alert(-1)
-                    //                          逻辑错误的操作
-                }else if(data.errCode == 0){
-                    //成功进行解析显示
-//                $(".collapse").collapse(hide)
-                    alert(1)
-                }
-            }
-        });
-    })
-</script>
 <script>
 
 </script>
@@ -610,53 +483,6 @@
             $("#myModal2").modal('show');
         },
     });
-</script>
-
-
-<script>
-    //日历初始化
-    var Script = function () {
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-        $('#calendar').fullCalendar({
-            header: {
-                left: 'prevYear,prev,today,next,nextYear',
-                center: 'title',
-                right: 'month,basicWeek,basicDay'
-            },
-            editable: false,
-            droppable: false,
-            titleFormat: {
-                month: 'MMMM yyyy', // September 2009
-                week: "MMM d[ yyyy]{'&#8212;'[ MMM] d yyyy}", // Sep 7 - 13 2009
-                day: 'dddd, MMM d, yyyy'// Tuesday, Sep 8, 2009
-            },
-            events: [
-                                {
-                    title: 'Lunch',
-                    start: new Date(y, m, d, 12, 0),
-                    end: new Date(y, m, d, 14, 0),
-                    allDay: false,
-                    url: 'http://google.com/'
-                },
-                {
-                    title: 'Birthday Party',
-                    start: new Date(y, m, d + 1, 19, 0),
-                    end: new Date(y, m, d + 1, 22, 30),
-                    allDay: false,
-                    url: 'http://google.com/'
-                },
-                {
-                    title: 'Click for Google',
-                    start: new Date(y, m, 28),
-                    end: new Date(y, m, 29),
-                    url: 'http://google.com/'
-                }
-            ]
-        });
-    }();
 </script>
 </body>
 </html>
