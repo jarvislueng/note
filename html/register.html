@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--保证在不同的设备下可以显示-->
+    <meta name="description" content="index">
+    <meta name="author" content="jarvis">
+
+    <title>Register</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!--external css-->
+    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/create.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/style-responsive.css" rel="stylesheet" type="text/css">
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="register_page">
+    <div class="gradient">
+        <div class="container">
+            <h1 class="pull-left form-register-heading ">欢迎使用笔记</h1>
+        </div>
+        <div class="container register-model form-horizontal" style="vertical-align: middle;">
+            <!--<form>-->
+            <form class="form-group dddd">
+                <h2>创建一个新账号</h2>
+                <h2>用户名</h2>
+                <input data-container="body" data-toggle="popover" data-placement="left" value="s" name="username"
+                       data-content="左侧的 Popover 中的一些内容" class="form-control  col-md-8" id="username" type="text"
+                       autofocus>
+                <h2>绑定的邮箱地址</h2>
+                <input class="form-control col-md-8" name="email" id="email" type="text">
+                <h2>密码</h2>
+                <span>
+
+                                <input class="form-control  col-md-8" id="password" name="password"
+                                       type="password"><span class="col-md-4 pull-left" id="passstrength"></span>
+                            </span>
+            </form>
+            <input class="btn btn-success btn-lg" type="submit" value="submit" id="submit">
+            <!--</form>-->
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    辩题（如：“成功，失败”）
+                </h4>
+            </div>
+            <div class="modal-body">
+                在这里插入东西（如字符串“请验证邮箱”）
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">关闭
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+<script>
+    $("[data-toggle='popover']").popover('show');
+</script>
+<script>
+    $("#submit").click(function () {
+        $('#myModal').modal('show');
+        $('#myModal').on('hide.bs.modal', function () {
+            // 执行一些动作...
+            window.location.href = "www.baidu.com";
+        })
+
+    })
+</script>
+<script>
+    $('#password').keyup(function (e) {
+        var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$", "g");
+        var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+        var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+        if (false == enoughRegex.test($(this).val())) {
+            $('#passstrength').html('需要更长的密码');
+            $('#passstrength').attr("class", "btn-info");
+        } else if (strongRegex.test($(this).val())) {
+            $('#passstrength').className = 'ok';
+            $('#passstrength').html('强度：强');
+            $('#passstrength').attr("class", "btn-danger");
+        } else if (mediumRegex.test($(this).val())) {
+            $('#passstrength').className = 'alert';
+            $('#passstrength').html('强度：中');
+            $('#passstrength').attr("class", "btn-warning");
+        } else {
+            $('#passstrength').className = 'error';
+            $('#passstrength').html('强度：弱');
+            $('#passstrength').attr("class", "btn-success");
+        }
+        return true;
+    });
+</script>
+<!--------------------------------------------ajax待添加success----------------------------->
+
+<!--<script>-->
+<!--$(function () {-->
+<!--$('#submit').click(function () {-->
+<!--$.ajax({-->
+<!--type:"POST",-->
+<!--url: "http://localhost",-->
+<!--data :{username:$("#username").val(),email:$("#email").val(),password:$("#password").val()},-->
+<!--xhrFields: {-->
+<!--withCredentials: true-->
+<!--},-->
+<!--crossDomain: true,-->
+<!--error:function(XMLHttpRequest, textStatus, errorThrown) {//请求错误-->
+<!--alert(XMLHttpRequest.status+XMLHttpRequest.readyState+textStatus);-->
+<!--},-->
+<!--success:function(data){-->
+<!--if(data.errCode==-1){-->
+<!--alert(-1)-->
+<!--//                          逻辑错误的操作-->
+<!--}else if(data.errCode == 0){-->
+<!--//成功进行解析显示-->
+<!--alert(1)-->
+<!--}-->
+<!--}-->
+<!--});-->
+<!--})-->
+
+<!--})-->
+<!--</script>-->
+</html>

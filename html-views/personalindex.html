@@ -381,40 +381,44 @@
     var string1 = "poi1:1*poi2:2*kuma:#*kuma1:4*wo:#*!*!*poi3:3*!*";//"2:mt*3:#*5:mt*6:mt*!*4:mt";
 //文件目录树反序列
     function i(string) {
-        var result = "";
-        result += "<p class='centered'><a title='个人中心' href='#'><img src='../assets/img/ui-sam.jpg' class='img-circle' width='60'></a></p>" +
-            "<h5 class='centered'>Jarvis</h5>" +
-
-            "<li class='mt'> <a href='calendar.html'> <i class='fa fa-calendar'></i> <span>日历</span> </a> </li>";
-        var strs = new Array();//有：
-        var split = new Array();//唔：
-        var stack = [];//栈
-        strs = string.split("*");
-        var length = strs.length;
-        stack.push("#");
-        var pre = 0;
+        if(string == null||string == ""){
+            document.getElementById("nav-accordion").innerHTML = "<a style='color: white' href='login.html'><h1 class='centered'>请先登录</h1></a>";
+        }else{
+            var result = "";
+            result += "<p class='centered'><a title='个人中心' href='personalindex.html'><img src='../assets/img/ui-sam.jpg' class='img-circle' width='60'></a></p>" +
+                    "<h5 class='centered'>Jarvis</h5>" +
+                    "<span> <hr color='white'style='height: 5px' width='100%'  size='100%'></span> </a> </li>";
+            var strs = new Array();//有：
+            var split = new Array();//唔：
+            var stack = [];//栈
+            strs = string.split("*");
+            var length = strs.length;
+            stack.push("#");
+            var pre = 0;
 //      alert(strs[0])
-        while (pre < length - 1) {
-            if (strs[pre] == "!") {
-                result = result + "</ul></li>";
+            while (pre < length - 1) {
+                if (strs[pre] == "!") {
+                    result = result + "</ul></li>";
+                    pre++;
+                    continue;
+                }
+                split = strs[pre].split(":");
                 pre++;
-                continue;
+                //result = result+"<li>"+split[0];
+                var predir = stack[stack.length - 1];
+                stack.push(split[0]);
+                if (split[1] != "#") {
+                    stack.pop();
+                    result = result + "<li ><a class = 'click' address='" + split[1] + "'>" + split[0] + "</a></li>";//
+                } else {
+                    result = result + "<li class='sub-menu'><a href='javascript:;' pre ='" + predir + "' class='iiii'><i class='fa fa-book'></i><span>"
+                            + split[0] + "</span></a><ul class='sub' >";
+                }
             }
-            split = strs[pre].split(":");
-            pre++;
-            //result = result+"<li>"+split[0];
-            var predir = stack[stack.length - 1];
-            stack.push(split[0]);
-            if (split[1] != "#") {
-                stack.pop();
-                result = result + "<li ><a class = 'click' address='" + split[1] + "'>" + split[0] + "</a></li>";//
-            } else {
-                result = result + "<li class='sub-menu'><a href='javascript:;' pre ='" + predir + "' class='iiii'><i class='fa fa-book'></i><span>"
-                    + split[0] + "</span></a><ul class='sub' >";
-            }
-        }
 
-        document.getElementById("nav-accordion").innerHTML = result;
+            document.getElementById("nav-accordion").innerHTML = result;
+
+        }
     }
     i(string1);
     //      alert(result);

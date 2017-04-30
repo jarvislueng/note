@@ -267,39 +267,38 @@
     <section class="col-md-9" id="main-content" style="height: 70%;width: 80%;position: absolute;margin-top:5px ">
 
         <section class="createwrap">
-            <div style="text-align: center">
-                <h1 >旭，这里是标题，需要添加</h1>
-                <input type="button" class="btn btn-success  btn-s" value="修改" id="chang">
-                <a href='javascript:void(0);' onclick="changlike()"> <i id="like" style="font-size: 25px" class='fa fa-heart-o'></i></a>
+            <div class="www row hw">
+                <div class="col-md-2">
+                    <div style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
+                        <img style="width:100px; height:100px;" src="../assets/img/1.jpg">
+                    </div>
+                    <i style="font-size: 25px;padding-top: 10px" class='fa fa-heart'>100</i>
+                </div>
+                <div class="col-md-9">
+                    <a href="#" style="color: grey">
+                        <h2>搜索示例</h2>
+                        <h5>这里要200字吧，一篇文章从后台中摘去出来</h5>
+                    </a>
+                    <div style="text-align: end">作者是jarvis发布于2017-04-30</div>
+                </div>
             </div>
-
-            <div>
-                <div id="summernote"><h4>272行：如果不是自己账户是修改不了的，如果是别人，272行应整个删除或者隐藏</h4>
-                    <h4>290行：初始化评论在290行的div下搞（id为comment）搜索是用表单的</h4>
-                    <h4>277行：文章直接把标签贴到277行的&lt;<span style="font-family: 宋体; font-size: 12pt; color: rgb(0, 0, 128); background-color: rgb(239, 239, 239); font-weight: bold;">div </span><span style="font-family: 宋体; font-size: 12pt; color: rgb(0, 0, 255); background-color: rgb(239, 239, 239); font-weight: bold;">id=</span><span style="font-family: 宋体; font-size: 12pt; color: rgb(0, 128, 0); background-color: rgb(239, 239, 239); font-weight: bold;">"summernote"&gt;</span>&nbsp; &nbsp; 里面。</h4>
+            <div class="www row hw">
+                <div class="col-md-2">
+                    <div style="width:100px; height:100px; border-radius:50%; overflow:hidden;">
+                        <img style="width:100px; height:100px;" src="../assets/img/1.jpg">
+                    </div>
+                    <i style="font-size: 25px;padding-top: 10px" class='fa fa-heart'>100</i>
+                </div>
+                <div class="col-md-9">
+                    <a href="#" style="color: grey">
+                        <h2>搜索示例</h2>
+                        <h5>这里要200字吧，一篇文章从后台中摘去出dvfdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd来</h5>
+                    </a>
+                    <div style="text-align: end">作者是jarvis发布于2017-04-30</div>
                 </div>
             </div>
         </section>
         <! --/wrapper -->
-        <div style="text-align: center;"><input style="display:none;" type="button" class="btn btn-success btn-lg btn-s"
-                                                value="提交" hidden="true" id="submit"></div>
-
-
-        <div id="commentarea">
-            <hr color="red" width="100%" size="100%">
-            <h3>评论区</h3>
-            <div class="container" id="comment">
-                <h4><strong>jarvis:</strong><div style="text-indent:2em;">123456</div></h4>
-            </div>
-            <a href='#collapseOne' data-toggle="collapse"> <i class='fa fa-comment' style="font-size: 25px"></i>
-            </a>
-            <div class="collapse" id="collapseOne">
-                <div class="input-sm col-sm-8">
-                    <input type="text" id="conmenttext" class="form-control">
-                </div>
-                <button type="submit" class="su btn btn-primary" >提交</button>
-            </div>
-        </div>
     </section><!-- /MAIN CONTENT -->
 
 </section>
@@ -316,45 +315,8 @@
 
 <!--script for this page-->
 <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
-<script src="../assets/js/summernote.js"></script>
-<script src="../assets/css/lang/summernote-zh-CN.js"></script>
 <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
 <script>
-    var like = false;
-    likefun()
-    function changlike() {
-        like = !like;
-        $.ajax({
-            type:"POST",
-            url: "127.0.0.1",
-            data :{like:like,textid:addressid},
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-            error:function(XMLHttpRequest, textStatus, errorThrown) {//请求错误
-                likefun();
-                alert(XMLHttpRequest.status+XMLHttpRequest.readyState+textStatus);
-            },
-            success:function(data){
-                $("#collapseOne").collapse('hide')
-                if(data.errCode==-1){
-                    alert(-1)
-                    //                          逻辑错误的操作
-                }else if(data.errCode == 0){
-                    //成功进行解析显示
-                    alert(1)
-                }
-            }
-        });
-    }
-    function likefun() {
-        if(like){
-            $("#like").attr("class","fa fa-heart");
-        }else{
-            $("#like").attr("class","fa fa-heart-o");
-        }
-    }
     var string1 = "poi1:1*poi2:2*kuma:#*kuma1:4*wo:#*!*!*poi3:3*!*";//"2:mt*3:#*5:mt*6:mt*!*4:mt";
     //文件目录树反序列
     function i(string) {
@@ -402,99 +364,6 @@
     //      for(i = 0; i < strs.length; i++){
     //          alert(strs[i]);
     //      }
-</script>
-
-<script>/**
- 修改件
- **/
-$("#chang").click(function () {
-    $("#chang").hide();
-    $("#submit").show();
-    $("#commentarea").hide();
-    $("#like").hide();
-    var height = $(window).height() * 0.7;
-    $(document).ready(function () {
-        $('#summernote').summernote({
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['fontname', ['fontname']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture']],
-                ['view', ['codeview']],
-            ],
-            height: height,                 // set editor height
-            minHeight: height,             // set minimum height of editor
-            maxHeight: height,             // set maximum height of editor
-            focus: true,                  // set focus to editable area after initializing summernote
-            lang: 'zh-CN'
-        });
-    })
-})
-</script>
-<script>
-    //上传文本操作
-    //alert(location.href);
-    var ad = location.href;
-    var t = ad.split("/");
-    var addressid = t[t.length - 1];
-    $('#submit').click(function () {
-        $.ajax({
-            type: "POST",
-            url: address,
-            data: {text: $("#summernote").html(), id: addressid},
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-            error: function (XMLHttpRequest, textStatus, errorThrown) {//请求错误
-                alert(XMLHttpRequest.status + XMLHttpRequest.readyState + textStatus);
-            },
-            success: function (data) {
-                if (data.errCode == -1) {
-                    alert(-1)
-                    //                          逻辑错误的操作
-                } else if (data.errCode == 0) {
-                    //成功进行解析显示
-                    alert(1)
-                }
-            }
-        });
-    })
-</script>
-<script>
-    $(".click").click(function () {
-        var address = $(this).attr("address");
-        alert(address)
-//        $(function () {
-//            $('#submit').click(function () {
-//                $.ajax({
-//                    type:"POST",
-//                    url: address,
-//                    data :{username:$("#username").val(),email:$("#email").val(),password:$("#password").val()},
-//                    xhrFields: {
-//                        withCredentials: true
-//                    },
-//                    crossDomain: true,
-//                    error:function(XMLHttpRequest, textStatus, errorThrown) {//请求错误
-//                        alert(XMLHttpRequest.status+XMLHttpRequest.readyState+textStatus);
-//                    },
-//                    success:function(data){
-//                        if(data.errCode==-1){
-//                            alert(-1)
-//                            //                          逻辑错误的操作
-//                        }else if(data.errCode == 0){
-//                            //成功进行解析显示
-//                            alert(1)
-//                        }
-//                    }
-//                });
-//            })
-//
-//        })
-    });
 </script>
 
 <script>
@@ -619,49 +488,5 @@ $("#chang").click(function () {
         },
     });
 </script>
-
-<script>
-    //评论
-    $('.su').click(function () {
-       // var id = $(this).attr("textid");
-//        alert($("#conmenttext-"+id).val());
-        var conment = $("#conmenttext").val();
-        $("#conmenttext").val("");
-        $.ajax({
-
-            type:"POST",
-            url: "127.0.0.1",
-            data :{commnet:conment,textid:addressid},
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-            error:function(XMLHttpRequest, textStatus, errorThrown) {//请求错误
-                //addcomment("456","jarvis");
-                $("#collapseOne").collapse('hide');
-
-                alert(XMLHttpRequest.status+XMLHttpRequest.readyState+textStatus);
-            },
-            success:function(data){
-                $("#collapseOne").collapse('hide')
-                if(data.errCode==-1){
-                    alert(-1)
-                    //                          逻辑错误的操作
-                }else if(data.errCode == 0){
-                    //成功进行解析显示
-//                $(".collapse").collapse(hide)
-                    alert(1)
-                }
-            }
-        });
-    })
-    function addcomment(co,user) {
-        var commentString ='<h4><strong>'+user+':</strong><div style="text-indent:2em;">'+co+'</div></h4>';
-        document.getElementById("comment").innerHTML += commentString;
-    }
-</script>
-
-
-
 </body>
 </html>

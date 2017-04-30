@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--保证在不同的设备下可以显示-->
+    <meta name="description" content="index">
+    <meta name="author" content="jarvis">
+
+    <title>Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!--external css-->
+    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/style-responsive.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!-- **********************************************************************************************************************************************************
+MAIN CONTENT
+*********************************************************************************************************************************************************** -->
+
+<div id="login-page">
+    <div class="container">
+        <div class="col-md-offset-7">
+            <form class="form-login" action="general1.html">
+                <h2 class="form-login-heading">登录</h2>
+                <div class="login-wrap">
+                    <input type="text" class="form-control" placeholder="用户名" autofocus>
+                    <br>
+                    <input type="password" class="form-control" placeholder="密码">
+                    <label class="checkbox">
+		                <span class="pull-right">
+		                    <a data-toggle="modal" href="login.html#myModal"> 忘记密码?</a>
+
+		                </span>
+                    </label>
+                    <button class="btn btn-theme btn-block" href="general1.html" type="submit"><i
+                            class="fa fa-lock"></i> 登录
+                    </button>
+                    <hr>
+
+                    <div class="login-social-link centered hidden-xs">
+                        <p>使用其他方式</p>
+                        <button class="btn btn-facebook" type="submit" style="width: 80px"><i class="fa fa-qq"></i> QQ
+                        </button>
+                        <button class="btn btn-twitter" type="submit" style="width: 80px"><i class="fa fa-wechat"></i>微信
+                        </button>
+                    </div>
+                    <div class="registration">
+                        还没有账号吗？<br/>
+                        <a class="" href="register.html">
+                            创建新账号
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Modal -->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal"
+                     class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                                </button>
+                                <h4 class="modal-title">忘记密码？</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>请输入您绑定的邮箱地址.</p>
+                                <input type="text" name="email" id="email" placeholder="邮箱地址" autocomplete="off"
+                                       class="form-control placeholder-no-fix">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-default" type="button">取消</button>
+                                <button class="btn btn-theme" type="button" id="submit">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal -->
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../assets/js/jquery.backstretch.min.js"></script>
+<script>
+    $.backstretch("../assets/img/login-bg.jpg", {speed: 500});
+</script>
+
+
+</body>
+<script>
+    $(function () {
+        $('#submit').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "http://localhost",
+                data: {email: $("#email").val()},
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                error: function (XMLHttpRequest, textStatus, errorThrown) {//请求错误
+                    alert(XMLHttpRequest.status + XMLHttpRequest.readyState + textStatus);
+                },
+                success: function (data) {
+                    if (data.errCode == -1) {
+                        alert(-1)
+                        //                          逻辑错误的操作
+                    } else if (data.errCode == 0) {
+                        //成功进行解析显示
+                        alert(1)
+                    }
+                }
+            });
+        })
+
+    })
+</script>
+</html>

@@ -268,11 +268,11 @@
 
         <section class="createwrap">
             <div style="text-align: center">
-                <h1 >旭，这里是标题，需要添加</h1>
-                <input type="button" class="btn btn-success  btn-s" value="修改" id="chang">
+                <h1 >旭，这里是标题，需要添加,如果不是本人账号查看在js中将isauthor设置成false，这个会直接删除修改键</h1>
+                作者<a href="focus.html">jarvis</a>
                 <a href='javascript:void(0);' onclick="changlike()"> <i id="like" style="font-size: 25px" class='fa fa-heart-o'></i></a>
             </div>
-
+            <input type="button" class="btn btn-success  btn-s" value="修改" id="chang">
             <div>
                 <div id="summernote"><h4>272行：如果不是自己账户是修改不了的，如果是别人，272行应整个删除或者隐藏</h4>
                     <h4>290行：初始化评论在290行的div下搞（id为comment）搜索是用表单的</h4>
@@ -321,6 +321,13 @@
 <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
 <script>
     var like = false;
+    var isauthor =true;
+    function isaut() {
+        if(!isauthor){
+            $("#chang").remove();
+        }
+    }
+    isaut()
     likefun()
     function changlike() {
         like = !like;
@@ -333,11 +340,11 @@
             },
             crossDomain: true,
             error:function(XMLHttpRequest, textStatus, errorThrown) {//请求错误
-                likefun();
+//                likefun();
                 alert(XMLHttpRequest.status+XMLHttpRequest.readyState+textStatus);
             },
             success:function(data){
-                $("#collapseOne").collapse('hide')
+                likefun();//改变心号
                 if(data.errCode==-1){
                     alert(-1)
                     //                          逻辑错误的操作
